@@ -1,0 +1,22 @@
+{
+  "name": "tourapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start-server": "ts-node server.ts",
+    "start": "nodemon -e ts -w ./ -x npm run start-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^10.12.24",
+    "nodemon": "^1.18.10",
+    "ts-node": "^8.0.2"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "typescript": "^3.3.3"
+  }
+}
