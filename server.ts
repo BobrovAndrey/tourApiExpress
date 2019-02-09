@@ -1,17 +1,19 @@
-import * as express from "express";
-const app = express();
+import express = require('express')
+const app = express()
 
 
-app.get("/", (req, res, next) => {
-    res.send("TourBooking API");
-});
+app.get('/', (req, res, next)=> {
+    res.send('Tour Booking API')
+})
 
-app.get("/tours", (req, res, next) => {
-    res.send("Get a list of tours");
-});
+app.get('/tours', (req, res, next)=> {
+    res.send('Get list of tours')
+})
 
-app.post("/tours", (req, res, next) => {
-    res.send("Post a new tour");
-});
+app.post('/tours', (req, res, next)=> {
+    res.send('Add a new tour...')
+})
 
-app.listen(process.env.PORT || 8091, () => console.log("Server Started..."));
+console.log('test change')
+
+app.listen(process.env.PORT || 8091, () => console.log('Server runing...'))
