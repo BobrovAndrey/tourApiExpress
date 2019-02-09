@@ -14,4 +14,6 @@ app.post('/tours', (req, res, next)=> {
     res.send('Add a new tour...')
 })
 
+console.log('test change')
+
 app.listen(process.env.PORT || 8091, () => console.log('Server runing...'))
