@@ -1,3 +1,13 @@
 {
-    "extends": ["tslint:recommended"]
-  }
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "interface-name": [false],
+        "no-console": [false],
+        "quotemark": [true, "single"]
+    },
+    "rulesDirectory": []
+}
