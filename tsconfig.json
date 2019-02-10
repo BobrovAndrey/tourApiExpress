@@ -18,7 +18,7 @@
             "es2015"
         ]
     },
-    "include": [
-        "source/**/*"
+    "exclude": [
+        "node_modules"
     ]
 }
