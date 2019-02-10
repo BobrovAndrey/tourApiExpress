@@ -15,9 +15,15 @@
 //  })
 
 //  app.listen(process.env.PORT || 8091, () => console.log('Server runing...'))
-import express from 'express';
+import * as express from "express";
+import log from "./log";
+
 const app = express();
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get("/", (req, res) => {
+    res.json(JSON.stringify({ok: 1})).end();
+});
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(process.env.PORT || 5000, () => {
+    log.info("app running");
+});
