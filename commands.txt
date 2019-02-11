@@ -1,0 +1,8 @@
+npm init
+npm install typescript -g
+npm install @types/node -D
+tsc --init
+npm install express -S
+npm install @types/express -D
+npm install ts-node -D
+npm install nodemon -D

@@ -1,7 +1,10 @@
 import express from 'express';
 const app = express()
 
+import { DataStore } from '../data/data'
 
+
+console.log('Data is', DataStore.tours)
 app.get('/', (req, res, next)=> {
      res.send('Tour Booking API')
  })
