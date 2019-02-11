@@ -1,5 +1,7 @@
-import express from 'express';
+import express from 'express'
 const app = express()
+
+console.log(express)
 
 import { DataStore } from '../data/data'
 import { apiGetTours } from '../api/tours/apiGetTours';
@@ -16,4 +18,4 @@ app.get('/', (req, res, next)=> {
      res.send('Add a new tour...')
  })
 
- app.listen(process.env.PORT || 8091, () => console.log('Server now runing...'))
+ app.listen(process.env.PORT || 8092, () => console.log('Server now runing...'))
