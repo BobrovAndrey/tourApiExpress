@@ -2,16 +2,15 @@ import express from 'express';
 const app = express()
 
 import { DataStore } from '../data/data'
+import { apiGetTours } from '../api/tours/apiGetTours';
 
 
-console.log('Data is', DataStore.tours)
+console.log('Data is',DataStore.tours)
 app.get('/', (req, res, next)=> {
      res.send('Tour Booking API')
  })
 
- app.get('/tours', (req, res, next)=> {
-     res.send('Get list of tours')
-})
+ app.get('/tours', apiGetTours)
 
  app.post('/tours', (req, res, next)=> {
      res.send('Add a new tour...')
