@@ -3,5 +3,5 @@ import { RequestHandler } from 'express'
 import { TourSummary } from '../../model/shared/tourSummary'
 
 export const apiGetTours: RequestHandler = (req, res, next) => {
-  res.json(DataStore.tours.map((item) => new TourSummary(item)))
+  res.json(DataStore.tours.map((item: any) => new TourSummary(item)))
 }
