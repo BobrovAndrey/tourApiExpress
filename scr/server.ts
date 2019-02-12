@@ -8,7 +8,7 @@ import { apiGetTours } from '../api/tours/apiGetTours';
 import { apiGetTourDetail } from '../api/tours/apiGetToursDetail';
 
 
-console.log('Data is',DataStore.tours)
+// console.log('Data is',DataStore.tours)
 app.get('/', (req, res, next)=> {
      res.send('Tour Booking API')
  })
