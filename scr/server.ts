@@ -1,6 +1,10 @@
 import express from 'express'
 const app = express()
 
+import bodyParser from 'body-parser'
+const jsonParser = bodyParser.json()
+
+
 console.log(express)
 
 import { DataStore } from '../data/data'
@@ -16,6 +20,8 @@ app.get('/', (req, res, next)=> {
  app.get('/tours', apiGetTours)
 
  app.get('/tours/:id', apiGetTourDetail)
+
+ app.post('/tours', )
 
  app.post('/tours', (req, res, next)=> {
      res.send('Post a new tour...')
