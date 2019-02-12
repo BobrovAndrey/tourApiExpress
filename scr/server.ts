@@ -24,8 +24,6 @@ app.get('/', (req, res, next)=> {
 
  app.post('/tours', jsonParser, apiCreateTour)
 
-//  app.post('/tours', (req, res, next)=> {
-//      res.send('Post a new tour...')
-//  })
+ app.delete('/tours/:id', )
 
- app.listen(process.env.PORT || 8092, () => console.log('Server now runing...3'))
+ app.listen(process.env.PORT || 8091, () => console.log('Server now runing...3'))
