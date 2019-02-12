@@ -1,7 +1,7 @@
 import express from 'express'
 const app = express()
 
-import bodyParser from 'body-parser'
+import bodyParser, { json } from 'body-parser'
 const jsonParser = bodyParser.json()
 
 
@@ -21,7 +21,7 @@ app.get('/', (req, res, next)=> {
 
  app.get('/tours/:id', apiGetTourDetail)
 
- app.post('/tours', )
+ app.post('/tours', jsonParser,  )
 
  app.post('/tours', (req, res, next)=> {
      res.send('Post a new tour...')
