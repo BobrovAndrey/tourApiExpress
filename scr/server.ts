@@ -11,6 +11,7 @@ import { DataStore } from '../data/data'
 import { apiGetTours } from '../api/tours/apiGetTours';
 import { apiGetTourDetail } from '../api/tours/apiGetToursDetail';
 import { apiCreateTour } from '../api/tours/apiCreateTour'
+import { apiDeleteTour } from '../api/tours/apiDeleteTour';
 
 
 // console.log('Data is',DataStore.tours)
@@ -24,6 +25,6 @@ app.get('/', (req, res, next)=> {
 
  app.post('/tours', jsonParser, apiCreateTour)
 
- app.delete('/tours/:id', )
+ app.delete('/tours/:id', apiDeleteTour )
 
  app.listen(process.env.PORT || 8091, () => console.log('Server now runing...3'))
