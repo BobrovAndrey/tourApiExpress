@@ -16,20 +16,24 @@ import { apiUpdateTour } from '../api/tours/apiUpdateTour'
 import { apiUpdatePatchTour } from '../api/tours/apiUpdatePatchTour'
 import { CustomRequestHandler } from '../model/express';
 
+import morgan from 'morgan'
+const logger = morgan('dev')
 
-const authenticator: CustomRequestHandler = (req, res, next) => {
-    const username = 'Andrey'
-    req.user = username
-    next()
-}
-
-const logger: CustomRequestHandler = (req, res, next) => {
-    console.log('User: '+ req.user + ' - ' + new Date() + '-' + req.method +'Request path' + req.path)
-    next()
-}
-
-app.use(authenticator)
 app.use(logger)
+
+// const authenticator: CustomRequestHandler = (req, res, next) => {
+//     const username = 'Andrey'
+//     req.user = username
+//     next()
+// }
+
+// const logger: CustomRequestHandler = (req, res, next) => {
+//     console.log('User: '+ req.user + ' - ' + new Date() + '-' + req.method +'Request path' + req.path)
+//     next()
+// }
+
+// app.use(authenticator)
+// app.use(logger)
 
 app.get('/', (req, res, next)=> {
      res.send('Tour Booking API')
@@ -39,7 +43,7 @@ app.get('/', (req, res, next)=> {
 
  app.get('/tours/:id', apiGetTourDetail)
 
- app.post('/tours', urlEncodedParser, apiCreateTour)
+ app.post('/tours', jsonParser, apiCreateTour)
 
  app.delete('/tours/:id', apiDeleteTour )
 
