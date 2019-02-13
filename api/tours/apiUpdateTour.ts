@@ -5,6 +5,7 @@ export const apiUpdateTour: RequestHandler = (req, res, next) => {
   const tourID = req.params.id
   const tourIndex = DataStore.tours.findIndex((item: any) => item.id == tourID)
   if(tourIndex > -1) {
+    const originalTour = DataStore.tours[tourIndex]
     const newTour = {
       id: tourID,
       location: req.body.location || '',
@@ -12,7 +13,8 @@ export const apiUpdateTour: RequestHandler = (req, res, next) => {
       tourCategory: req.body.tourCategory || '',
       tourDescription: req.body.tourDescription || '',
       price: req.body.price || 0,
-      currency: req.body.currency || ''
+      currency: req.body.currency || '',
+      img: originalTour.img
     }
     DataStore.tours[tourIndex] = newTour
     res.json({"status": "success", "message": "Element updated"})
