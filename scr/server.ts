@@ -13,6 +13,7 @@ import { apiGetTourDetail } from '../api/tours/apiGetToursDetail'
 import { apiCreateTour } from '../api/tours/apiCreateTour'
 import { apiDeleteTour } from '../api/tours/apiDeleteTour'
 import { apiUpdateTour } from '../api/tours/apiUpdateTour'
+import { apiUpdatePatchTour } from '../api/tours/apiUpdatePatchTour'
 
 // console.log('Data is',DataStore.tours)
 app.get('/', (req, res, next)=> {
@@ -29,4 +30,6 @@ app.get('/', (req, res, next)=> {
 
  app.put('/tours/:id', jsonParser, apiUpdateTour)
 
- app.listen(process.env.PORT || 8091, () => console.log('Server now runing...3'))
+ app.patch('/tours/:id', jsonParser, apiUpdatePatchTour)
+
+ app.listen(process.env.PORT || 8092, () => console.log('Server now runing...3'))

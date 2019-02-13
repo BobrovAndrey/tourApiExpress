@@ -15,7 +15,7 @@ export const apiUpdateTour: RequestHandler = (req, res, next) => {
       currency: req.body.currency || ''
     }
     DataStore.tours[tourIndex] = newTour
-    res.json({"status": "success", "message": "Element removed"})
+    res.json({"status": "success", "message": "Element updated"})
   }
   else {
     res.json({"status": "error", "message": "Element not found"})
