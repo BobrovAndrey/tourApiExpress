@@ -3,7 +3,7 @@ const app = express()
 
 import bodyParser, { json } from 'body-parser'
 const jsonParser = bodyParser.json()
-
+const urlEncodedParser = bodyParser.urlencoded({ extended: true })
 
 //console.log(express)
 
@@ -39,7 +39,7 @@ app.get('/', (req, res, next)=> {
 
  app.get('/tours/:id', apiGetTourDetail)
 
- app.post('/tours', jsonParser, apiCreateTour)
+ app.post('/tours', urlEncodedParser, apiCreateTour)
 
  app.delete('/tours/:id', apiDeleteTour )
 
