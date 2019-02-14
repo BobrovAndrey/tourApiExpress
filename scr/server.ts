@@ -14,14 +14,25 @@ import { apiUpdateTour } from '../api/tours/apiUpdateTour'
 import { apiUpdatePatchTour } from '../api/tours/apiUpdatePatchTour'
 import { CustomRequestHandler } from '../model/express';
 
+import path from 'path'
+import { __root } from '../config';
+import { apiUploadImage } from '../api/tours/apiUploadImage';
+import { APIError } from '../model/shared/messages';
+
 import morgan from 'morgan'
 const logger = morgan('dev')
 
 app.use(logger)
 
-import path from 'path'
-import { __root } from '../config';
-import { apiUploadImage } from '../api/tours/apiUploadImage';
+app.use((req,res,next) => {
+    if(req.accepts('application/json')) {
+        next()
+    } else {
+        next (new APIError('Content Type not supported', 'This API only supports application/json', 400))
+    }
+})
+
+
 
 app.use('/static', express.static(path.join(__dirname, 'public', 'img')))
 
@@ -46,6 +57,10 @@ app.get('/', (req, res, next)=> {
  app.get('/tours', apiGetTours)
 
  app.get('/tours/:id', apiGetTourDetail)
+
+ app.post('/headers', (req, res, next) => {
+     res.json(req.headers)
+ })
 
  app.post('/tours', jsonParser, apiCreateTour)
 
