@@ -20,6 +20,8 @@ const logger = morgan('dev')
 app.use(logger)
 
 import path from 'path'
+import { __root } from '../config';
+import { apiUploadImage } from '../api/tours/apiUploadImage';
 
 app.use('/static', express.static(path.join(__dirname, 'public', 'img')))
 
@@ -47,10 +49,12 @@ app.get('/', (req, res, next)=> {
 
  app.post('/tours', jsonParser, apiCreateTour)
 
+ app.post('/tours/:id/img', apiUploadImage)
+
  app.delete('/tours/:id', apiDeleteTour )
 
  app.put('/tours/:id', jsonParser, apiUpdateTour)
 
  app.patch('/tours/:id', jsonParser, apiUpdatePatchTour)
 
- app.listen(process.env.PORT || 8091, () => console.log('Server now runing...3'))
+ app.listen(process.env.PORT || 8094, () => console.log('Server now runing...3'))
