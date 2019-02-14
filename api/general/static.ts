@@ -1,7 +1,7 @@
 export function getStaticHome (env: string) {
   switch(env){
     case "developent": 
-    return "http://localhost:8091//static"
+      return "http://localhost:8091/static/"
     case "production":
     // CDN
   }

@@ -5,8 +5,6 @@ import bodyParser, { json } from 'body-parser'
 const jsonParser = bodyParser.json()
 const urlEncodedParser = bodyParser.urlencoded({ extended: true })
 
-//console.log(express)
-
 import { DataStore } from '../data/data'
 import { apiGetTours } from '../api/tours/apiGetTours'
 import { apiGetTourDetail } from '../api/tours/apiGetToursDetail'
@@ -20,6 +18,10 @@ import morgan from 'morgan'
 const logger = morgan('dev')
 
 app.use(logger)
+
+import path from 'path'
+
+app.use('/static', express.static(path.join(__dirname, 'public', 'img')))
 
 // const authenticator: CustomRequestHandler = (req, res, next) => {
 //     const username = 'Andrey'
@@ -51,4 +53,4 @@ app.get('/', (req, res, next)=> {
 
  app.patch('/tours/:id', jsonParser, apiUpdatePatchTour)
 
- app.listen(process.env.PORT || 8093, () => console.log('Server now runing...3'))
+ app.listen(process.env.PORT || 8091, () => console.log('Server now runing...3'))
