@@ -58,6 +58,8 @@ app.get('/', (req, res, next)=> {
 
  app.get('/tours/:id', apiGetTourDetail)
 
+ app.get('/booking/:id(\\d{4})', (req, res, next) => res.json(req.params))
+
  app.post('/headers', (req, res, next) => {
      res.json(req.headers)
  })
