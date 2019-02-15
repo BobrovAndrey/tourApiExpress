@@ -22,6 +22,7 @@ import { idFormat } from '../config'
 
 import morgan from 'morgan'
 import { dateParam } from '../api/general/reqParams/dateParam';
+import { apiCheckTourFilter } from '../api/tours/apiCheckTourFilter';
 const logger = morgan('dev')
 
 app.use(logger)
@@ -56,7 +57,7 @@ app.get('/', (req, res, next)=> {
      res.send('Tour Booking API')
  })
 
- app.get('/tours', apiGetTours)
+ app.get('/tours', apiCheckTourFilter,  apiGetTours)
 
  app.get('/tours/:id', apiGetTourDetail)
 
