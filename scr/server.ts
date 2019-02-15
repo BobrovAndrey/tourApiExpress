@@ -18,8 +18,10 @@ import path from 'path'
 import { __root } from '../config';
 import { apiUploadImage } from '../api/tours/apiUploadImage';
 import { APIError } from '../model/shared/messages';
+import { idFormat } from '../config'
 
 import morgan from 'morgan'
+import { dateParam } from '../api/general/reqParams/dateParam';
 const logger = morgan('dev')
 
 app.use(logger)
@@ -58,7 +60,9 @@ app.get('/', (req, res, next)=> {
 
  app.get('/tours/:id', apiGetTourDetail)
 
- app.get('/booking/:id(\\d{4})', (req, res, next) => res.json(req.params))
+ app.param ('formDate', dateParam )
+
+ app.get(`/booking/:id(${idFormat})`, (req, res, next) => res.json(req.params))
 
  app.post('/headers', (req, res, next) => {
      res.json(req.headers)
