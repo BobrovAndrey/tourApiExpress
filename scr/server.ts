@@ -23,6 +23,7 @@ import { idFormat } from '../config'
 import morgan from 'morgan'
 import { dateParam } from '../api/general/reqParams/dateParam';
 import { apiCheckTourFilter } from '../api/tours/apiCheckTourFilter';
+import { apiErrorHandler } from '../api/general/errorHandling';
 const logger = morgan('dev')
 
 app.use(logger)
@@ -52,6 +53,8 @@ app.use('/static', express.static(path.join(__dirname, 'public', 'img')))
 
 // app.use(authenticator)
 // app.use(logger)
+
+app.use(apiErrorHandler)
 
 app.get('/', (req, res, next)=> {
      res.send('Tour Booking API')
