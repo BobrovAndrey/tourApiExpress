@@ -24,6 +24,7 @@ import morgan from 'morgan'
 import { dateParam } from '../api/general/reqParams/dateParam';
 import { apiCheckTourFilter } from '../api/tours/apiCheckTourFilter';
 import { apiErrorHandler } from '../api/general/errorHandling';
+import { apiDownloadImage } from '../api/tours/apiDownloadImage';
 const logger = morgan('dev')
 
 app.use(logger)
@@ -34,6 +35,14 @@ app.use((req,res,next) => {
     } else {
         next (new APIError('Content Type not supported', 'This API only supports application/json', 400))
     }
+})
+
+app.use ((req, res, next) => {
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Method': 'GET, POST, PUT, DELETE'
+    })
+    next()
 })
 
 
@@ -81,5 +90,7 @@ app.get('/', (req, res, next)=> {
  app.put('/tours/:id', jsonParser, apiUpdateTour)
 
  app.patch('/tours/:id', jsonParser, apiUpdatePatchTour)
+
+ app.get('/static/download/:filename', apiDownloadImage)
 
  app.listen(process.env.PORT || 8095, () => console.log('Server now runing...3'))
