@@ -25,6 +25,7 @@ import { dateParam } from '../api/general/reqParams/dateParam';
 import { apiCheckTourFilter } from '../api/tours/apiCheckTourFilter';
 import { apiErrorHandler } from '../api/general/errorHandling';
 import { apiDownloadImage } from '../api/tours/apiDownloadImage';
+import { userRouter } from '../api/users/apiUsers';
 const logger = morgan('dev')
 
 app.use(logger)
@@ -36,6 +37,8 @@ app.use((req,res,next) => {
         next (new APIError('Content Type not supported', 'This API only supports application/json', 400))
     }
 })
+
+app.use('/users', userRouter)
 
 app.use ((req, res, next) => {
     res.set({
