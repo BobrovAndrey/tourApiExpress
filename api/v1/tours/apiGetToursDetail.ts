@@ -1,7 +1,7 @@
-import { DataStore } from "../../data/data";
+import { DataStore } from "../../../data/data";
 import { RequestHandler } from "express";
-import { TourDetail } from "../../model/shared/tourDetail";
-import { fileMapper } from "../../api/general/static";
+import { TourDetail } from "../../../model/shared/tourDetail";
+import { fileMapper } from "../general/static"
 
 export const apiGetTourDetail: RequestHandler = (req, res, next) => {
     const tourID = req.params.id;

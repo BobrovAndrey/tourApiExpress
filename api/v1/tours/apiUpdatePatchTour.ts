@@ -1,4 +1,4 @@
-import { DataStore } from '../../data/data'
+import { DataStore } from '../../../data/data'
 import { RequestHandler } from 'express'
 
 export const apiUpdatePatchTour: RequestHandler = (req, res, next) => {

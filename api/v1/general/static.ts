@@ -1,13 +1,13 @@
 import { RequestHandler } from "express-serve-static-core";
 import multer = require("multer");
 import path from 'path'
-import { __root } from "../../config";
+import { __root } from "../../../config";
 import uuid from 'uuid/v4'
 
 export function getStaticHome (env: string) {
   switch(env){
-    case "developent": 
-      return "http://localhost:8094/static/"
+    case "development": 
+      return "http://localhost:8094/v1/static/"
     case "production":
     // CDN
   }

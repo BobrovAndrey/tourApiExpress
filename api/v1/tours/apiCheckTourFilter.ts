@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express'
-import { TourFilters } from '../../model/shared/tourFilter';
+import { TourFilters } from '../../../model/shared/tourFilter';
 
 export const apiCheckTourFilter: RequestHandler = (req, res, next) => {
   const filters = new TourFilters(req.query)

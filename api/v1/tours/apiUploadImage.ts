@@ -1,4 +1,4 @@
-import { DataStore } from '../../data/data'
+import { DataStore } from '../../../data/data'
 import { RequestHandler } from 'express'
 import * as staticFileSecvice from  '../general/static'
 
