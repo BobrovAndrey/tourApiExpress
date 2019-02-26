@@ -13,18 +13,24 @@ export let toursRouter = Router()
 
 toursRouter.route('/')
     .get(apiCheckTourFilter, apiGetTours)
+    .post(jsonParser, apiCreateTour)
 
-toursRouter.post('/', jsonParser, apiCreateTour)
+toursRouter.route('/:id')
+     .delete(apiDeleteTour )
+     .put(jsonParser, apiUpdateTour)
+     .patch(jsonParser, apiUpdatePatchTour)
+     .get( apiGetTourDetail)
 
+// toursRouter.post('/', jsonParser, apiCreateTour)
 toursRouter.post('/:id/img', apiUploadImage)
 
-toursRouter.delete('/:id', apiDeleteTour )
+// toursRouter.delete('/:id', apiDeleteTour )
 
-toursRouter.put('/:id', jsonParser, apiUpdateTour)
+// toursRouter.put('/:id', jsonParser, apiUpdateTour)
 
-toursRouter.patch('/:id', jsonParser, apiUpdatePatchTour)
+// toursRouter.patch('/:id', jsonParser, apiUpdatePatchTour)
 
-toursRouter.get('/', apiCheckTourFilter,  apiGetTours)
+// toursRouter.get('/', apiCheckTourFilter,  apiGetTours)
 
-toursRouter.get('/:id', apiGetTourDetail)
+// toursRouter.get('/:id', apiGetTourDetail)
  
